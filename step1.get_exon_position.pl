@@ -15,9 +15,9 @@ open OUT, ">acijub.position";
 foreach $name (@name) {
 	$name1=basename $name;
 	($name2)=$name1=~/^(\S+)\.fas/;
-    open IN, "<$name";
-    undef %hash;
-    while (<IN>) {
+    	open IN, "<$name";
+    	undef %hash;
+    	while (<IN>) {
 		s/\r\n//;
 		chomp;
 		if (/^\>/) {
@@ -86,7 +86,6 @@ foreach $name (@name) {
 		}
 	}
 	
-#	if ($#pos1 eq $#pos2) {
 	print OUT ">$name2\taligment_start:alignment_end[exon_prank:exon_name:exon_len:orien:chromose:exon_start:exon_end]\n";
 	#print OUT "@pos1\n";
 	print OUT "$pos1[0]";
@@ -101,10 +100,5 @@ foreach $name (@name) {
 	printf OUT "\t%60s",$pos2[$i];
 	}
 	print OUT "\n";
-	
-#}
-	
-	
-	
 }
 close OUT;
